@@ -1,0 +1,12 @@
+summary: "Get all cities' weather info"
+description: "An API to get all cities' weather info"
+produces:
+- "application/json"
+responses:
+  200:
+    description: "Success"
+    schema:
+      type: "object"
+      properties:
+        data:
+          type: "object"

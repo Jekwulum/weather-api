@@ -1,0 +1,12 @@
+summary: "Get all subcribers"
+description: "An API to get all subscribers"
+produces:
+- "application/json"
+responses:
+  200:
+    description: "Success"
+    schema:
+      type: "object"
+      properties:
+        data:
+          type: "object"
