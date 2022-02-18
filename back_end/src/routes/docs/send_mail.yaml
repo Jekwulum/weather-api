@@ -1,0 +1,15 @@
+summary: "send emails of weather info"
+description: "An API to send emails of weather info to subscribers"
+produces:
+- "application/json"
+responses:
+  200:
+    description: "Success"
+    schema:
+      type: "object"
+      properties:
+        data:
+          type: "object"
+        message:
+          type:
+            "string"

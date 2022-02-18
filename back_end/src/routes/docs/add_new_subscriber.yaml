@@ -1,0 +1,33 @@
+summary: "Add a new subscriber"
+description: "An API to add a new subscriber"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body"
+  name: "email"
+  type: "object"
+  properties:
+    email:
+      type: "string"
+  example: {"email": "testEmail@email.com"}
+  description: "Accepts an input dictionary of email"
+  required: "true"
+responses:
+  201:
+    description: "Created"
+    schema:
+      type: "object"
+      properties:
+        data:
+          type: "string"
+        message:
+          type: "string"
+  400:
+    description: "Bad Request"
+  409:
+    description: "Conflict"
+
+
+

@@ -1,0 +1,19 @@
+summary: "Get a particular city's data"
+description: "An API to get a particular city's data"
+produces:
+- "application/json"
+parameters:
+- in: "query"
+  name: "city"
+  type: "string"
+  properties:
+    city:
+      type: "string"
+responses:
+  200:
+    description: "Success"
+    schema:
+      type: "object"
+      properties:
+        data:
+          type: "object"

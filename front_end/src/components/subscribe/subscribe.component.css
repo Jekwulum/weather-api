@@ -1,0 +1,32 @@
+.sub {
+    margin: 20px;
+}
+
+.email-input {
+    height: 25px;
+    margin: 5px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    border: 1px solid rgba(2, 238, 247, 1);
+    outline: none;
+    transition: 0.5s;
+    -webkit-transition: 0.5;
+}
+
+.email-input:focus {
+    border: 1px solid rgba(2, 238, 247, 1);
+}
+
+.sub-btn {
+    font-size: 15px;
+    height: 35px;
+    background-color: rgba(2, 238, 247, 1);
+    border: 1px solid rgba(2, 238, 247, 1);
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .email-input {
+        width: 120px;
+    }
+}

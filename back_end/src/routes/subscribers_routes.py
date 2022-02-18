@@ -9,10 +9,10 @@ def new_subscriber():
     email = request.get_json().get('email', '')
     
     if not validators.email(email):
-        return jsonify({'error': 'Enter a valid email'}), HTTP_400_BAD_REQUEST
+        return jsonify({'message': 'Enter a valid email'}), HTTP_400_BAD_REQUEST
     
     if Subscriber.query.filter_by(email=email).first():
-        return jsonify({'error':"email already exists!"}), HTTP_409_CONFLICT
+        return jsonify({'message':"email already exists!"}), HTTP_409_CONFLICT
     
     subscriber = Subscriber(email=email)
     db.session.add(subscriber)
