@@ -1,3 +1,4 @@
+from distutils.command.config import config
 from flask import Flask, jsonify
 import requests
 import os 
@@ -13,6 +14,7 @@ import schedule
 from .routes.routes import subscribers, weather_info
 from .utils.email_generator import mail_gen
 from .database import db
+from .config.swagger import template, swagger_config
 
 load_dotenv()
 
@@ -46,6 +48,8 @@ def create_app(test_config=None):
     app.register_blueprint(subscribers, url_prefix='/api/v1/subscribers')
     app.register_blueprint(weather_info, url_prefix='/api/v1/info')
     
+    Swagger(app, config=swagger_config, template=template)
+    
     @app.route('/all-data', methods=['GET'])
     def all_data():
         APP_ID = os.environ.get('APP_ID')
@@ -75,8 +79,14 @@ def create_app(test_config=None):
     # schedule.every(10).seconds.do(mail_gen)
     # schedule.every().day.at("07:00").do(mail_gen)
     # schedule.run_pending()
+
+    @app.errorhandler(404)
+    def handle_404(e):
+        return jsonify({'error': 'Not Found'}), 404
     
-    Swagger(app)
-    
+    @app.errorhandler(500)
+    def handle_500(e):
+        return jsonify({'error': 'Something went wrong, we are working on it'}), 500
+     
     
     return app
