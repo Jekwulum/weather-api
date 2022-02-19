@@ -17,7 +17,7 @@ const Subscribe = () => {
                 }
             }
             const response = await axios.post(
-                'http://127.0.0.1:4000/api/v1/subscribers/new',
+                'https://j-weather-api.herokuapp.com/api/v1/subscribers/new',
                 {email},
                 config
             );
