@@ -25,6 +25,11 @@ def create_app(test_config=None):
             SECRET_KEY=os.environ.get("SECRET_KEY"),
             SQLALCHEMY_DATABASE_URI=os.environ.get("SQLALCHEMY_DB_URI"),
             SQLALCHEMY_TRACK_MODIFICATIONS=False,
+            
+            SWAGGER = {
+                 'title': "Weather API",
+                 'uiversion': 3
+             }
         )
     
     else:
@@ -37,9 +42,7 @@ def create_app(test_config=None):
     
     CORS(app)
     
-    os.environ['ROOT_PATH'] = app.root_path
     
-    # rootPath = app.root_path
     app.register_blueprint(subscribers, url_prefix='/api/v1/subscribers')
     app.register_blueprint(weather_info, url_prefix='/api/v1/info')
     
