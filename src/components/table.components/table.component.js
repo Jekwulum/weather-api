@@ -7,7 +7,7 @@ import './table.component.css';
 
 
 const fetchData = async (city) => {
-    let url = `http://j-weather-api.herokuapp.com/api/v1/info/city-data/${city}`;
+    let url = `https://j-weather-api.herokuapp.com/api/v1/info/city-data/${city}`;
     const  response  = await axios.get(url);
     const resp = response.data;
     console.log(resp);
