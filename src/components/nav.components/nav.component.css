@@ -17,15 +17,30 @@ img.app-icon {
     height: 70px;
 }
 
-.subscribe {
-    margin: 20px;
-}
-
 @media only screen and (max-width: 600px) {
     .head {
-        width: 100%;
+        width: 500px;
     }
     img.app-icon {
         height: 60px;
     }
 }
+
+@media only screen and (max-width: 500px) {
+    .head {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .head {
+        width: 385px;
+    }
+}
+
+
+/* @media only screen and (max-width: 300px) {
+    .head {
+        width: 300px;
+    }
+} */

@@ -46,4 +46,34 @@ table.center {
     table.center {
         margin: 0;
     }
+    .table {
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    table.center {
+        margin: 0;
+    }
+    .table {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    table.center {
+        margin: 0;
+    }
+    .table {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    table.center {
+        margin: 0;
+    }
+    .table {
+        width: 200px;
+    }
 }
