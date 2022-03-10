@@ -20,16 +20,16 @@ def city_data(city, in_func=None):
         "wind_speed": response['wind']['speed']
     }
     
-    # data_dict = {
-    #         "city": "London",
-    #         "country": "GB",
-    #         "humidity": 65,
-    #         "icon": "04n",
-    #         "main": "Clouds",
-    #         "temp": 279.5,
-    #         "timezone": 0,
-    #         "wind_speed": 6.17
-    #     }
+    data_dict2 = {
+            "city": "London",
+            "country": "GB",
+            "humidity": 65,
+            "icon": "04n",
+            "main": "Clouds",
+            "temp": 279.5,
+            "timezone": 0,
+            "wind_speed": 6.17
+        }
     
     if in_func is None:
         return jsonify(data_dict), 200
