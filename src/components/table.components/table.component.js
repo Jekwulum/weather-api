@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
+import Loading from '../loading.components/loading.component.js';
 import TableRow from './tableRow.component.js';
 
 import './table.component.css';
 
 
 const fetchData = async (city) => {
-    let url = `https://j-weather-api.herokuapp.com/api/v1/info/city-data/${city}`;
+    // let url = `https://j-weather-api.herokuapp.com/api/v1/info/city-data/${city}`;
+    let url = `http://127.0.0.1:4000/api/v1/info/city-data/${city}`;
     const  response  = await axios.get(url);
     const resp = response.data;
     console.log(resp);
@@ -27,7 +29,7 @@ const fetchData = async (city) => {
 
 const Table = () => {
     
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [cities, setCities] = useState([]);
     const selectedCities = ['London', 'Lagos', 'Accra', 'Belhi', 'Ontario', 
                     'Toronto', 'Edinburgh', 'Birmingham',
@@ -48,29 +50,39 @@ const Table = () => {
     
     return(
         <div className='table'>
-            <table className='center'>
-                <tbody>
-                    <tr>
-                        <th className='width-head'>City</th>
-                        <th className='width-head'>Temperature</th>
-                        <th className='width-head'>desc</th>
-                        <th className='width-icon'>Icon</th>
-                    </tr>
-                    {!loading ? 
-                        (   cities.map((data, i) => <TableRow propsData={ data } key = {i} /> )  ) 
-                        : 
-                        (
+            {!loading ? 
+                (
+                    <table className='center'>
+                        <tbody>
                             <tr>
-                                <td>city</td>
-                                <td>country</td>
-                                <td>country</td>
-                                <td>country</td>
-                                <td>country</td>
-                            </tr> 
-                        ) 
-                    }
-                </tbody>
-            </table>
+                                <th className='width-head'>City</th>
+                                <th className='width-head'>Temperature</th>
+                                <th className='width-head'>desc</th>
+                                <th className='width-icon'>Icon</th>
+                            </tr>
+                            {(   cities.map((data, i) => <TableRow propsData={ data } key = {i} /> )  )}
+                        </tbody>
+                    </table>
+                )
+                : 
+                (
+                <div>
+                    <div>
+                    <table className='center'>
+                        <tbody>
+                            <tr>
+                                <th className='width-head'>City</th>
+                                <th className='width-head'>Temperature</th>
+                                <th className='width-head'>desc</th>
+                                <th className='width-icon'>Icon</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <Loading />
+                </div>
+                ) 
+            }
         </div>
     )
 }
