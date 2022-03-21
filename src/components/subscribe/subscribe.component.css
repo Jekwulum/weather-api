@@ -23,6 +23,11 @@
     background-color: rgba(2, 238, 247, 1);
     border: 1px solid rgba(2, 238, 247, 1);
     border-radius: 10px;
+    transition: ease 0.5s;
+}
+
+.sub-btn:hover {
+    transform: scale(1.1);
 }
 
 @media only screen and (max-width: 600px) {
